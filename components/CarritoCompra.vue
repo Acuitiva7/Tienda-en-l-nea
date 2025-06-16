@@ -26,6 +26,7 @@
           <td>{{ item.cantidad }}</td>
           <td>{{ formatPrice(item.price * item.cantidad) }}</td> <!--Calcula el total del producto-->
         </tr>
+       
       </template>
      <!-- ✅ Slot especial: mostrar el total arriba de la paginación -->
   <template v-slot:body.append>
@@ -33,6 +34,7 @@
       <td colspan="5" class="text-right font-weight-bold">Total de la compra:</td>
       <td><strong>{{ formatPrice(totalProductos) }}</strong></td>
     </tr>
+   
   </template>
 </v-data-table>
 </div>
@@ -43,6 +45,7 @@
 <script setup>
 import { useTiendaStore } from '../stores/store'
 import { computed } from 'vue';
+
 
 const tiendaStore = useTiendaStore()
 const totalProductos = computed (() =>
@@ -57,6 +60,7 @@ const formatPrice = (price) => {
     minimumFractionDigits: 0 // para quitar los decimales
   }).format(price)
 }
+
 
 </script>
 
